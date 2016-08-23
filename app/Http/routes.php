@@ -15,5 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('servererror', function () {
-    return view('errors.403');
+    return view('errors.503');
+});
+Route::get('not_found', function () {
+    return view('errors.404');
 });
