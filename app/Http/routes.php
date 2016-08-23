@@ -14,3 +14,6 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('servererror', function () {
+    return view('errors.403');
+});
