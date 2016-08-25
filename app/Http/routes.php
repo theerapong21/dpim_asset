@@ -17,6 +17,6 @@ Route::get('/', function () {
 Route::get('servererror', function () {
     return view('errors.503');
 });
-Route::get('not_found', function () {
-    return view('errors.404');
+Route::get('testmenu', function () {
+    return view('testmenu');
 });
