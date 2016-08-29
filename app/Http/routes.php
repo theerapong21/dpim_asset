@@ -20,3 +20,15 @@ Route::get('servererror', function () {
 Route::get('testmenu', function () {
     return view('testmenu');
 });
+
+Route::get('apptest', function () {
+    return view('layouts.app');
+});
+
+Route::resource('usersmanage','usersController');
+Route::resource('usermenu', 'userMenuController');
+
+Route::auth();
+
+Route::get('/home', 'HomeController@index');
+

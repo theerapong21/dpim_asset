@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\User;
-use Validator;
 use App\Http\Controllers\Controller;
-use Illuminate\Foundation\Auth\ThrottlesLogins;
+use App\User;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Illuminate\Foundation\Auth\ThrottlesLogins;
+use Validator;
 
 class AuthController extends Controller
 {
@@ -19,7 +19,7 @@ class AuthController extends Controller
     | authentication of existing users. By default, this controller uses
     | a simple trait to add these behaviors. Why don't you explore it?
     |
-    */
+     */
 
     use AuthenticatesAndRegistersUsers, ThrottlesLogins;
 
@@ -49,9 +49,13 @@ class AuthController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|max:255',
-            'email' => 'required|email|max:255|unique:users',
-            'password' => 'required|min:6|confirmed',
+            'user_first_name_th' => 'required|max:255',
+            'user_last_name_th'  => 'required|max:255',
+            'user_first_name_en' => 'max:255',
+            'user_last_name_en'  => 'max:255',
+            'username'           => 'required|max:255',
+            'email'              => 'required|email|max:255|unique:users',
+            'password'           => 'required|min:6|confirmed'
         ]);
     }
 
@@ -63,10 +67,16 @@ class AuthController extends Controller
      */
     protected function create(array $data)
     {
+        print_r($data);
         return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
+            
+            'username'           => $data['username'],
+            'email'              => $data['email'],
+            'password'           => bcrypt($data['password']),
+            'user_first_name_th' => $data['user_first_name_th'],
+            'user_last_name_th'  => $data['user_last_name_th'],
+            'user_first_name_en' => $data['user_first_name_en'],
+            'user_last_name_en'  => $data['user_last_name_en']
         ]);
     }
 }

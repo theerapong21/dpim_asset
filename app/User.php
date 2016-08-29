@@ -10,9 +10,9 @@ class User extends Authenticatable
      * The attributes that are mass assignable.
      *
      * @var array
-     */
+     */  
     protected $fillable = [
-        'name', 'email', 'password',
+        'username', 'email', 'password', 'user_first_name_th', 'user_last_name_th', 'user_first_name_en','user_last_name_en'
     ];
 
     /**
