@@ -10,25 +10,22 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+Route::get('home', 'HomeController@index');
+Route::get('/', function(){return redirect('/home'); });
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('servererror', function () {
-    return view('errors.503');
-});
 Route::get('testmenu', function () {
     return view('testmenu');
 });
 
-Route::get('apptest', function () {
-    return view('layouts.app');
-});
-
-Route::resource('usersmanage','usersController');
-Route::resource('usermenu', 'userMenuController');
 
 Route::auth();
 
-Route::get('/home', 'HomeController@index');
+Route::group(['middleware'=>'auth'],function(){
+	Route::resource('usersmanage','usersController');
+	Route::resource('usermenu', 'userMenuController');
+	
+});
+
+
+
 
