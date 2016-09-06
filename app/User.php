@@ -12,7 +12,13 @@ class User extends Authenticatable
      * @var array
      */  
     protected $fillable = [
-        'username', 'email', 'password', 'user_first_name_th', 'user_last_name_th', 'user_first_name_en','user_last_name_en'
+        'username', 
+        'email', 
+        'password', 
+        'user_first_name_th', 
+        'user_last_name_th', 
+        'user_first_name_en',
+        'user_last_name_en'
     ];
 
     /**
@@ -21,6 +27,11 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password', 
+        'remember_token',
     ];
+
+    public function add_screens(){
+        return $this->hasMany('App\m_screen','create_by', 'username');
+    }
 }

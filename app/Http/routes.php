@@ -23,7 +23,11 @@ Route::auth();
 Route::group(['middleware'=>'auth'],function(){
 	Route::resource('usersmanage','usersController');
 	Route::resource('usermenu', 'userMenuController');
-	
+	Route::resource('m_screen','MScreenController');
+	Route::resource('screen','MScreenController@store');
+
+	Route::resource('m_main_menu','MainMenuController');
+
 });
 
 
