@@ -28,6 +28,8 @@ Route::group(['middleware'=>'auth'],function(){
 
 	Route::resource('m_main_menu','MainMenuController');
 
+	Route::get('screen_list','ScreensDatatableController@screenList');
+
 });
 
 

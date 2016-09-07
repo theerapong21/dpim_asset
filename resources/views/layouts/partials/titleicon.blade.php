@@ -1,0 +1,1 @@
+<link rel="icon" type="image/gif/png" href="/assets/pages/img/dpim_logo.png">
